@@ -1,0 +1,46 @@
+﻿@model Part16.Models.Person
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+@*В качестве значения атрибут asp-validation-summary принимает одно из значений перечисления ValidationSummary:
+    None: ошибки валидации не отображаются
+    ModelOnly: отображаются только ошибка валидации уровня модели, ошибки валидации для отдельных свойств не отображаются
+    All: отображаются все ошибки валидации*@
+<div asp-validation-summary="All"></div>
+<form asp-action="Create" asp-controller="Home">
+    <div>
+        <div>
+            <label asp-for="Name"></label><br />
+            <input type="text" asp-for="Name" />
+            @*Атрибут asp-validation-for в качестве значения принимает название свойства модели,
+                для которого будет выводиться сообщение об ошибке валидации*@
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="Email"></label><br />
+            <input type="text" asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="Password"></label><br />
+            <input type="password" asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div>
+            <label asp-for="Age"></label><br />
+            <input asp-for="Age" />
+            <span asp-validation-for="Age"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+</form>
+
+@*@section scripts{
+
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }*@
